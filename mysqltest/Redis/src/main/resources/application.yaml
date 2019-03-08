@@ -1,0 +1,46 @@
+#服务启动端口
+server :
+  port :  9980
+
+#数据库配置
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/test_data?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  redis:
+    host: 127.0.0.1
+    #redis密码，没有密码的可以用～表示
+    password: ~
+    port: 7006
+#    pool:
+#      max-active: 100
+#      max-idle: 10
+#      max-wait: 100000
+
+# 日志输出
+#logging:
+#  file: ~/boot.log
+#  level:
+#    com.ibatis:DEBUG
+#    root:DEBUG
+
+task:
+  cron:0 0/5 * * * ?
+
+
